@@ -1,0 +1,10 @@
+name: Recipe or configuration proposal
+description: Discuss a specific improvement to the Pi experience
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What problem does this recipe solve?
+      description: Include the extension source and version, required services, network/model requests, tradeoffs and how to disable it.
+    validations:
+      required: true

@@ -1,0 +1,25 @@
+{
+  "description": "Theme, input editor, HUD, grouped model picker, rich tool output and clear.",
+  "packages": [
+    "cooking-pi",
+    "@cooking-pi/hud-snapshot",
+    "pi-block-editor",
+    "pi-provider-model-picker",
+    "pi-cc-extensions"
+  ],
+  "settings": {
+    "theme": "catppuccin-latte/catppuccin-frappe",
+    "defaultThinkingLevel": "medium",
+    "markdown": {
+      "mermaid": "final"
+    },
+    "compaction": {
+      "enabled": true
+    },
+    "retry": {
+      "enabled": true
+    },
+    "skills": [],
+    "enableInstallTelemetry": false
+  }
+}

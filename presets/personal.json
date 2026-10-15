@@ -1,0 +1,40 @@
+{
+  "description": "The author's extension combination, with private endpoints supplied separately.",
+  "packages": [
+    "pi-web-access",
+    "pi-undo-redo",
+    "pi-codex-compaction",
+    "@juicesharp/rpiv-todo",
+    "pi-provider-model-picker",
+    "pi-session-titler",
+    "@juicesharp/rpiv-ask-user-question",
+    "@narumitw/pi-goal",
+    "@ff-labs/pi-fff",
+    "@cooking-pi/hud-snapshot",
+    "pi-block-editor",
+    "pi-cc-extensions",
+    "cooking-pi"
+  ],
+  "settings": {
+    "theme": "catppuccin-latte/catppuccin-frappe",
+    "defaultProvider": "openai-codex",
+    "defaultModel": "gpt-6.1-sol",
+    "defaultThinkingLevel": "medium",
+    "markdown": {
+      "mermaid": "final"
+    },
+    "compaction": {
+      "enabled": true,
+      "modelOverrides": {
+        "openai-codex/gpt-6.1-sol": {
+          "reserveTokens": 25001
+        }
+      }
+    },
+    "retry": {
+      "enabled": true
+    },
+    "skills": [],
+    "enableInstallTelemetry": false
+  }
+}

@@ -1,0 +1,26 @@
+name: Bug or compatibility issue
+description: Report a reproducible problem without private data
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, terminal, Node, Pi and cooking-pi version
+    validations:
+      required: true
+  - type: dropdown
+    id: preset
+    attributes:
+      label: Preset
+      options:
+        - recommended
+        - minimal
+        - personal
+        - custom combination
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps and expected / actual behavior
+      description: Use a temporary workspace. Remove credentials, real sessions, account profiles, private endpoints and unchecked logs.
+    validations:
+      required: true

@@ -1,0 +1,27 @@
+{
+  "name": "@cooking-pi/hud-snapshot",
+  "version": "0.2.1-cooking.20261015",
+  "description": "Runtime-only snapshot of the author's Pi HUD worktree; see ORIGIN.json.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "files": [
+    "index.ts",
+    "src/",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "ORIGIN.json",
+    "README.md"
+  ]
+}

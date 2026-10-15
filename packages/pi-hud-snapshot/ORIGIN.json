@@ -1,0 +1,32 @@
+{
+  "repository": "https://github.com/M1racleShih/pi-hud",
+  "baseCommit": "4f48d4e0d6e97e17679bc6c20222c3dfa751fe2a",
+  "sourceManifestVersion": "0.2.1",
+  "capturedOn": "2026-10-15",
+  "includesUncommittedRuntimeChanges": true,
+  "scope": "index.ts and src/**/*.ts only; no user configuration, runtime state or private verification records",
+  "files": {
+    "index.ts": "5965d02fe91dbc9fc0e9b9eab7cc831059d096554df500c6302bc9b896ffd1fc",
+    "src/config.ts": "72e425f5a4d51398ade0741d8b832898adc75c7faa1d9b01c50a456172f1e749",
+    "src/extension.ts": "c35ba6b5b6be2891b20965613fd14a317ff12871aa8ab125ee6b4d517a0c7281",
+    "src/footer.ts": "de824287b9ab9c58632fa0017711b09c4e0164003dd84ee38797d87aa69b7803",
+    "src/git.ts": "91095c70c4a6b5683363be22831f2e2333960e20a7ab0d062530cfe2613cbec0",
+    "src/palette.ts": "c3d45c3516915e79b5ed5e37711da4944c6454057cb1ed377b4615e945c0f386",
+    "src/quota/adapters/codex.ts": "5975896542b21090e1d6663d99303ab5e596367823cbccaa0192f58927e3f852",
+    "src/quota/adapters/deepseek.ts": "b78ec97a49ecd05e21d7d12390d406fd1eaad0b2e80740060a76d6d17938d681",
+    "src/quota/adapters/http.ts": "3151dc9b6d6aec50d37fca584f24e69ad72102b8c864308a7656c71d5783c0ec",
+    "src/quota/adapters/newapi.ts": "2e896307754e9fd4ed111ce8fcfeadf8218a83e148d2ad7d17c54c55f31685e6",
+    "src/quota/adapters/siliconflow.ts": "125b3f1a5eee38f9d483f2f268d21494a8ea374bb9c54cc60ac1da7efbfe2228",
+    "src/quota/adapters/zai.ts": "e09b812829ef4c1fc88d9dcaaa606385c4f608e93cbaf3dae68d91ec73029f0b",
+    "src/quota/codex-process.ts": "d450d0e59c9ae1ca78fcd5e60c92f24e2fb096773c41d73fdbc4f234a680b130",
+    "src/quota/identity.ts": "a0347261eceab287ec1bdf6f6286eceb10eccfffde17888ac8bac52584ceb320",
+    "src/quota/service.ts": "6203596f9e9146f2618d595750384473cf5fb041155de43afe42b3d6e8f3997f",
+    "src/quota/transport.ts": "cf3b2b787dd26c1271cd6ad7c7c0116e03d893823c0833756b4e256875f9a6f8",
+    "src/quota/types.ts": "f95eb54e2098668dbc6317f1c2639849575813dc6aefa9124c7f775d5082e806",
+    "src/render.ts": "9b0d7327bb891a4bafc322c33a1734f8fe5894803d25673611d8f76aec858d5a",
+    "src/scheduler.ts": "5ab28e85ebe133964d15985ac66bcf33b6276f2979b7799c515330925a08abd3",
+    "src/state.ts": "add3dece4fa0244f995d07e07d06ebac1e075a167783fb451be242c934a393f4",
+    "src/text.ts": "bd027b31ae43d6609b1b5164cdae1afde597ba99883cca23a34d097df3121a74",
+    "src/usage.ts": "43f30ce44d8441ec18d038a713a2ab6048e7d11883c091b4bf99a85ff6d3de6e"
+  }
+}

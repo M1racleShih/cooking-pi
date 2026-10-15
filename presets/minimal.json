@@ -1,0 +1,12 @@
+{
+  "description": "Pi native experience, isolated configuration, no optional extensions.",
+  "packages": [],
+  "settings": {
+    "defaultThinkingLevel": "medium",
+    "retry": {
+      "enabled": true
+    },
+    "skills": [],
+    "enableInstallTelemetry": false
+  }
+}

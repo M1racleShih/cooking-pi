@@ -1,0 +1,15 @@
+node_modules/
+.local/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.py[cod]
+.DS_Store
+artifacts/
+auth.json
+trust.json
+sessions/
+state/
+backups/

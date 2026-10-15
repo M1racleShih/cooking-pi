@@ -1,0 +1,110 @@
+{
+  "capturedOn": "2026-10-15",
+  "host": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "1.2.0",
+    "node": "24.18.0"
+  },
+  "configuredPackages": [
+    {
+      "name": "pi-web-access",
+      "observedVersion": "0.39.0",
+      "cookingSource": "0.39.0"
+    },
+    {
+      "name": "pi-undo-redo",
+      "observedVersion": "0.1.3",
+      "cookingSource": "0.1.4"
+    },
+    {
+      "name": "pi-codex-compaction",
+      "observedVersion": "0.2.3",
+      "cookingSource": "0.2.3"
+    },
+    {
+      "name": "@juicesharp/rpiv-todo",
+      "observedVersion": "2.13.8",
+      "cookingSource": "2.13.8"
+    },
+    {
+      "name": "pi-provider-model-picker",
+      "observedVersion": "0.1.0",
+      "cookingSource": "https://codeload.github.com/M1racleShih/pi-provider-model-picker/tar.gz/94e218dd6a14cf43fab0e4fde0e9c9908412cb16",
+      "observedCommit": "94e218dd6a14cf43fab0e4fde0e9c9908412cb16",
+      "dirty": false
+    },
+    {
+      "name": "pi-session-titler",
+      "observedVersion": "0.1.0",
+      "cookingSource": "0.1.0"
+    },
+    {
+      "name": "@juicesharp/rpiv-ask-user-question",
+      "observedVersion": "2.13.8",
+      "cookingSource": "2.13.8"
+    },
+    {
+      "name": "@narumitw/pi-goal",
+      "observedVersion": "0.54.11",
+      "cookingSource": "0.54.11"
+    },
+    {
+      "name": "@ff-labs/pi-fff",
+      "observedVersion": "0.11.0",
+      "cookingSource": "0.11.0"
+    },
+    {
+      "name": "pi-hud",
+      "observedVersion": "0.2.1",
+      "cookingSource": "file:packages/pi-hud-snapshot",
+      "observedCommit": "4f48d4e0d6e97e17679bc6c20222c3dfa751fe2a",
+      "dirty": true
+    },
+    {
+      "name": "pi-block-editor",
+      "observedVersion": "0.1.0",
+      "cookingSource": "https://codeload.github.com/M1racleShih/pi-block-editor/tar.gz/bb42e1ff1f55db0c1bf080fe5631a16ca10648c5",
+      "observedCommit": "bb42e1ff1f55db0c1bf080fe5631a16ca10648c5",
+      "dirty": false
+    },
+    {
+      "name": "pi-cc-extensions",
+      "observedVersion": "1.0.4",
+      "cookingSource": "1.0.4"
+    }
+  ],
+  "standaloneExtensions": [
+    {
+      "name": "clear.ts",
+      "sha256": "87f91a6510dabf32571d13785d5b29b6bc9674b67e4ac3bbe89e2a9cc39a0ee8",
+      "handling": "extensions/clear.ts"
+    },
+    {
+      "name": "remove-selected-models.ts",
+      "sha256": "f971dbecb93202de0974dfd98a64edc1846fff4cf5b5628cf3e8c5deb10e46ed",
+      "handling": "extensions/selected-models.ts (personal preset)"
+    },
+    {
+      "name": "herdr-agent-state.ts",
+      "sha256": "2c5272d732b475bbf91a027203b1f98d25fe43d2c1402530a442b288aeaca1e4",
+      "handling": "External Herdr-managed bridge; reinstall through Herdr, not vendored."
+    },
+    {
+      "name": "herdr-powerline-fonts.ts",
+      "sha256": "7fef426462e997af85afeba03154bc33407d8e6beecf184a522b0319c58e45d6",
+      "handling": "Equivalent guarded environment setup in the launcher."
+    }
+  ],
+  "skills": {
+    "global": [],
+    "controlCenterProject": []
+  },
+  "privacy": "No auth, endpoint addresses, account IDs, sessions, trust records, caches or backups were exported.",
+  "intentionalDifferences": [
+    "pi-undo-redo is pinned to 0.1.4, the published version containing upstream PR #2.",
+    "HUD runtime is snapshotted, without account profiles; quota queries default off.",
+    "Private endpoint addresses are supplied by environment during setup.",
+    "Herdr-managed state integration remains optional and external.",
+    "Personal model scoping can be configured after providers are authenticated."
+  ]
+}
