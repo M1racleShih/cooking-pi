@@ -45,4 +45,4 @@ npm run pi -- --preset personal
 - 不强制原账号的 enabledModels 列表；认证后通过 Pi 配置选择自己可用的模型范围。
 - Herdr 桥接需要在自己的独立目录重新接入；技能没有默认启用项。
 
-完整来源见 [source-inventory.json](source-inventory.json)。
+完整来源见 [source-inventory.json](source-inventory.json)。[原始设置记录](source-settings.json)另存了当时的模型范围、界面偏好和旧扩展字段，便于比较个人取舍；本地源码路径已替换为标签，这份记录不应直接当安装配置使用。需要复现我的模型范围时，在自己的提供商认证完成后，按其中的 `enabledModels` 列表调整个人配置。

@@ -1,0 +1,93 @@
+{
+  "capturedOn": "2026-10-15",
+  "purpose": "Historical reference for the author's source configuration; use presets and setup for portable installation. Local worktree references are replaced with symbolic labels.",
+  "sourceSha256": "f5c5157ec9748bc36250030d5bb89d014afa503b71fcb0c0bf643440beba142e",
+  "settings": {
+    "lastChangelogVersion": "1.2.0",
+    "theme": "catppuccin-latte/catppuccin-frappe",
+    "defaultProvider": "openai-codex",
+    "defaultModel": "gpt-6.1-sol",
+    "defaultThinkingLevel": "medium",
+    "skills": [],
+    "packages": [
+      "npm:pi-web-access",
+      "npm:pi-undo-redo",
+      "npm:pi-codex-compaction",
+      "npm:@juicesharp/rpiv-todo",
+      "<local-worktree:pi-provider-model-picker>",
+      "npm:pi-session-titler",
+      "npm:@juicesharp/rpiv-ask-user-question",
+      "npm:@narumitw/pi-goal",
+      "npm:@ff-labs/pi-fff",
+      "<local-worktree:pi-hud>",
+      "<local-worktree:pi-block-editor>",
+      "npm:pi-cc-extensions"
+    ],
+    "markdown": {
+      "mermaid": "final"
+    },
+    "powerline": {
+      "customItems": [
+        {
+          "id": "deepseek-balance",
+          "statusKey": "deepseek-balance",
+          "position": "right",
+          "prefix": "ds",
+          "color": "#4D6BFE"
+        },
+        {
+          "id": "glm-usage",
+          "statusKey": "glm-usage",
+          "position": "right",
+          "prefix": "glm",
+          "color": "#38BDF8"
+        },
+        {
+          "id": "minimax-usage",
+          "statusKey": "minimax-usage",
+          "position": "right",
+          "prefix": "mm",
+          "color": "#E5484D"
+        },
+        {
+          "id": "codex-usage",
+          "statusKey": "codex-usage",
+          "position": "right",
+          "prefix": "codex",
+          "color": "#10A37F"
+        }
+      ]
+    },
+    "breadcrumb": "inner",
+    "footer": true,
+    "header": true,
+    "header-info": true,
+    "compaction": {
+      "enabled": true,
+      "modelOverrides": {
+        "openai-codex/gpt-6.1-sol": {
+          "reserveTokens": 25001
+        }
+      }
+    },
+    "retry": {
+      "enabled": true
+    },
+    "enabledModels": [
+      "newapi/deepseek-flash",
+      "newapi/deepseek-v4-pro",
+      "minimax/MiniMax-M3",
+      "openai-codex/gpt-6-astra",
+      "openai-codex/gpt-6-luna",
+      "openai-codex/gpt-6.1-sol",
+      "xiaomi-token-plan-cn/mimo-v2.6-flash",
+      "xiaomi-token-plan-cn/mimo-v2.6-pro",
+      "zai-coding-cn/glm-5.3",
+      "zai-coding-cn/glm-5.3-flash",
+      "qwen-local/qwen3.8-27b",
+      "zai-coding-team/glm-5.3",
+      "zai-coding-team/glm-5.3-flash",
+      "newapi/DeepSeek-V4-Flash-0731"
+    ]
+  }
+}

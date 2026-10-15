@@ -21,6 +21,8 @@
 
 使用 `npm ci --ignore-scripts` 从锁文件安装。首次本机审计包含完整依赖树，`npm audit` 报告 0 个漏洞；这是检查当天的 registry 结果，不能替代以后重新审计。
 
+仅含 Git 文件的干净克隆，使用独立 HOME 从锁文件重装后，16 项单元测试、三组资源加载和六组 PTY 检查均通过。公开 GitHub 仓库的 Ubuntu CI 也独立安装并执行相同检查；首轮验收见 [Actions 运行记录](https://github.com/M1racleShih/cooking-pi/actions/runs/38695589177)。
+
 ## 尚未覆盖
 
 - macOS、Windows、ARM 和其他 Node 版本的实际安装与终端使用。
