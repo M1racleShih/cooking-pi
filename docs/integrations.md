@@ -6,6 +6,14 @@
 
 使用 Herdr 的用户，应通过自己的 Herdr 安装为 Pi 配置集成，并将该受管理桥接文件加入 cooking-pi 独立目录的 Pi `extensions` 配置。桥接文件路径和具体接入方式取决于自己的 Herdr 安装；核对当前 Herdr 集成文档，不要假设所有机器都安装在同一路径。生成文件不应作为个人配置源码提交。
 
+已取得 Herdr 管理的桥接文件后，可以先对一次运行显式加载它：
+
+```sh
+cooking-pi run -- -e /path/to/herdr-managed/herdr-agent-state.ts
+```
+
+确认自己的 pane 状态上报正常后，再把同一路径加入独立配置的 `extensions` 数组。这个操作引用受管理的来源，不复制生成文件；后续 setup 会识别这项手动配置变化。
+
 启动器保留已有的 `HERDR_*` 环境变量；存在 `HERDR_PANE_ID` 且未指定 `POWERLINE_NERD_FONTS` 时，将后者设为 `1`，对应来源环境的小兼容扩展。普通终端不会设置这一项。
 
 首次发布的自动验收不接管现有 Herdr pane，也不声称验证了跨机器 Herdr 状态上报。

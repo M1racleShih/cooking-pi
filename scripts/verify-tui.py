@@ -29,7 +29,7 @@ with tempfile.TemporaryDirectory(prefix='cooking-pi-tui-') as temp:
     env_base = {
         'PATH': os.environ['PATH'], 'HOME': str(base / 'home'), 'TERM': 'xterm-256color',
         'LANG': 'C.UTF-8', 'PI_OFFLINE': '1', 'PI_TELEMETRY': '0', 'PI_TITLE_OFF': '1',
-        'NODE_OPTIONS': '--import=' + str(ROOT / 'tests/fixtures/no-network.mjs'),
+        'NODE_OPTIONS': '--import=' + json.dumps(str(ROOT / 'tests/fixtures/no-network.mjs')),
         'COOKING_PI_NETWORK_LOG': str(base / 'network.log'),
         'XDG_CACHE_HOME': str(base / 'cache'), 'XDG_DATA_HOME': str(base / 'data'),
     }
@@ -43,7 +43,8 @@ with tempfile.TemporaryDirectory(prefix='cooking-pi-tui-') as temp:
             notes = workspace / 'notes.txt'
             notes.write_text('cooking-pi original\n')
             probe_file = base / f'{preset}-{mode}.json'
-            env = {**env_base, 'COOKING_PI_PROBE': str(probe_file)}
+            events_file = base / f'{preset}-{mode}.events'
+            env = {**env_base, 'COOKING_PI_PROBE': str(probe_file), 'COOKING_PI_EVENTS': str(events_file)}
             args = [NODE, str(CLI), 'run', '--preset', preset, '--agent-dir', str(agent), '--',
                     '--offline', '--no-approve', '--no-session', '--tui-mode', mode,
                     '--provider', 'cooking-fixture', '--model', 'fixture-alpha', '--thinking', 'medium',
@@ -81,12 +82,19 @@ with tempfile.TemporaryDirectory(prefix='cooking-pi-tui-') as temp:
                         raise RuntimeError(f'{preset}/{mode}: waiting for {marker!r}: {plain()[-1800:]}')
                     pump(0.1)
             def command(text, marker=None):
+                settled_before = len(events_file.read_text().splitlines()) if events_file.exists() else 0
                 recent.clear()
                 # undo intentionally restores the undone prompt into the editor.
                 # Clear that draft before entering the next command.
                 os.write(fd, b'\x01\x0b' + text.encode('utf8') + b'\r')
                 if marker:
                     wait(marker)
+                if not text.startswith('/') or text == '/cooking-custom':
+                    deadline = time.monotonic() + 25
+                    while not events_file.exists() or len(events_file.read_text().splitlines()) <= settled_before:
+                        if time.monotonic() >= deadline:
+                            raise RuntimeError(f'{preset}/{mode}: no agent_settled event for fixture turn')
+                        pump(0.1)
                 pump(0.25)
             def check():
                 command('/cooking-check', 'COOKING_CHECK_OK')

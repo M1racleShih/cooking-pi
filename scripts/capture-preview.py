@@ -33,7 +33,7 @@ with tempfile.TemporaryDirectory(prefix='cooking-pi-preview-') as temporary:
     (workspace / 'recipe.txt').write_text('A small recipe for a comfortable Pi.\n')
     env = {'PATH': os.environ['PATH'], 'HOME': str(base / 'home'), 'TERM': 'xterm-256color', 'COLORTERM': 'truecolor',
            'LANG': 'C.UTF-8', 'PI_OFFLINE': '1', 'PI_TELEMETRY': '0', 'PI_TITLE_OFF': '1',
-           'NODE_OPTIONS': '--import=' + str(root / 'tests/fixtures/no-network.mjs'),
+           'NODE_OPTIONS': '--import=' + json.dumps(str(root / 'tests/fixtures/no-network.mjs')),
            'COOKING_PI_NETWORK_LOG': str(base / 'network.log')}
     subprocess.run(['node', str(cli), 'setup', '--agent-dir', str(base / 'agent')], env=env, check=True, capture_output=True)
     command = ['node', str(cli), 'run', '--agent-dir', str(base / 'agent'), '--', '--offline', '--no-approve', '--no-session',
