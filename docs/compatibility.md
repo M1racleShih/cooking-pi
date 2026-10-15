@@ -4,16 +4,18 @@
 
 ## 自动检查
 
+这些检查针对仓库内的固定 Pi 和扩展组合，不代表其他版本也已通过验证。终端测试使用伪终端（PTY）启动真实的 Pi 终端界面，分别检查普通（regular）和全屏（fullscreen）两种模式。
+
 | 检查 | 方法与范围 |
 | --- | --- |
 | 安装与恢复 | `npm test`：计划不写入、幂等安装、冲突预检、备份和恢复、保留后续修改、保留认证与会话、拒绝文件/备份符号链接、拒绝路径穿越记录、独立配置与参数透传 |
 | 原生资源加载 | `npm run test:load`：minimal 0、recommended 5、personal 14 个配置扩展入口，均无加载错误、警告和主题诊断；检查唯一 clear、pm/context 注册，以及 undo-redo 的 custom-run 修复 |
-| 真实终端 | `npm run test:tui`：三种配方分别在 regular/fullscreen PTY 运行，使用实际 Pi、扩展、工具和会话实现 |
-| 组合行为 | 验证调用者 cwd、模型与思考级别、read/write/edit、reload 后续回合、缩放；推荐/个人配置另测 Block Editor、HUD、CC write 所有权、context、Ctrl+L 和 clear 保留模型/思考级别 |
-| undo-redo | personal 的两种 TUI 模式：undo 还原文件，自定义消息继续运行后仍可 redo，再次恢复文件 |
+| 真实终端 | `npm run test:tui`：三种配方分别在普通和全屏伪终端运行，使用真实 Pi、扩展、工具和会话实现 |
+| 组合行为 | 检查是否保留启动时的工作目录、模型和思考级别；验证 read/write/edit、reload 后继续对话和窗口缩放。推荐/个人配置另测 Block Editor、HUD、CC 的 write 输出、context、Ctrl+L，以及 clear 保留模型和思考级别 |
+| undo-redo | personal 的两种终端模式：undo 还原文件，收到扩展的自定义消息并继续运行后，仍可 redo 恢复修改 |
 | 公开文件 | `npm run check:public`：允许的源文件范围、常见凭证模式、本机 home 路径、文档本地链接、固定依赖来源、22 个 HUD 运行文件哈希；发布前另做人工检查 |
 
-这些检查使用独立 HOME、临时配置目录和临时工作区。模型响应由进程内 fixture 产生；网络 guard 禁止请求，检查会确认没有网络尝试。不会读取现有 Pi 认证，也不会调用真实供应商或产生付费模型请求。
+这些检查使用独立的 HOME 环境变量、临时配置目录和临时工作区。进程内的测试模型提供固定响应，网络拦截器禁止请求；检查还会确认没有任何联网尝试。测试不会读取现有 Pi 认证，也不会调用真实供应商或产生付费模型请求。
 
 运行终端测试后，原始 ANSI 和 JSON 报告位于 `.local/verification/`，不进入 Git。README 预览图来自真实 Pi 的离线演示输出，模型和用量为合成数据。
 

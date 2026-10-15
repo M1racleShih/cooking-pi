@@ -4,15 +4,40 @@
 
 [English](README.en.md) · [上手指南](docs/getting-started.md) · [扩展清单](docs/extensions.md) · [配置取舍](docs/decisions.md) · [兼容与验证](docs/compatibility.md) · [参与讨论](https://github.com/M1racleShih/cooking-pi/discussions)
 
-这是我在 Linux 上日常使用的 [Pi](https://github.com/earendil-works/pi) 环境整理。你可以先试用基础配置，逐步加入推荐的界面和工作流扩展，也可以只取用一项。安装使用独立的配置目录，已有的 `~/.pi/agent` 不参与安装和卸载。
+这是我在 Linux 上日常使用的 [Pi](https://github.com/earendil-works/pi) 配置和扩展参考。你可以直接使用官方 Pi，按需取用其中一项配置；也可以克隆仓库，完整复现这里的扩展组合。
+
+复现工具运行的是官方发布的 Pi，固定版本为 1.2.0。它在独立目录生成配置，已有的 `~/.pi/agent` 不参与配方的安装和卸载。
 
 ![推荐配置的真实 Pi 终端预览](assets/preview.png)
 
 预览来自实际 Pi 的离线终端输出；演示模型与用量为合成数据。
 
-## 开始烹饪
+## 先使用官方 Pi
 
-准备 Node.js **24.18.0** 和 npm（本仓库的锁文件由 npm **11.8.0** 生成），然后：
+初次接触 Pi，建议先按[官方安装说明](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/quickstart.md)安装。使用 Node.js 22.19 或更新版本时，也可以直接运行：
+
+```sh
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+cd /path/to/your-project
+pi
+```
+
+在 Pi 中执行 `/login` 登录自己的模型提供商，再用 `/model` 选择模型。随后可以参考[扩展清单](docs/extensions.md)，用官方的 `pi install` 按需安装扩展。这条路径不需要克隆 cooking-pi，认证和配置默认保存在 `~/.pi/agent`。
+
+想先试一个扩展，可以退出 Pi 后在终端运行以下命令，再启动 Pi：
+
+```sh
+pi install npm:pi-cc-extensions@1.0.4
+pi
+```
+
+这会安装 CC 扩展；截图中的完整界面还需要其他扩展和配置。官方 Pi 可以独立更新，本文记录的组合则以 Pi 1.2.0 为验证基线。详细步骤见[上手指南](docs/getting-started.md)。
+
+## 完整复现这份配方
+
+想复现截图中的组合、比较三种配方，或参与维护时，再克隆仓库。目前完整配方依赖仓库内的文件，尚未提供通过一条 `pi install` 命令应用全部配置的安装包。
+
+复现基线为 Node.js **24.18.0** 和 npm **11.8.0**。在终端执行：
 
 ```sh
 git clone https://github.com/M1racleShih/cooking-pi.git
@@ -35,7 +60,7 @@ npm run pi
 | `recommended` | Catppuccin、Block Editor、HUD、分组模型选择器、CC 工具输出、`/clear` | 想获得本文展示的界面体验 |
 | `personal` | 我的完整扩展组合、模型目录定制和可选端点 | 已熟悉 Pi，希望研究工作流和集成方式 |
 
-例如先体验原生 Pi：
+例如在独立配置目录中对比原生 Pi：
 
 ```sh
 npm run setup -- --preset minimal
@@ -44,7 +69,7 @@ npm run pi -- --preset minimal
 
 每种配方使用自己的目录，认证和会话也分别保存。`personal` 的模型默认值来自我的日常配置，需要自己的 Codex 登录；你可以自行换模型。更多端点设置见[个人配方](docs/personal.md)。
 
-## 在其他项目使用
+## 在其他项目使用这份配方
 
 启动器保留当前工作目录，因此 Pi 仍会读取目标项目的说明和经过信任确认的项目配置。可以给启动器设置一个别名，下面路径替换为你的实际克隆位置：
 
@@ -66,7 +91,7 @@ cooking-pi run
 
 `presets/` 是 cooking-pi 使用的模板目录，由安装工具生成普通 Pi 配置。它不是 Pi 的内置 profile 功能。生成后可以直接修改自己的配置；`doctor` 检查 JSON 和依赖版本，不把个人修改当错误。
 
-`plan` 只显示将要操作的文件和内容哈希。`setup` 对手动改过的文件默认报冲突；查看计划后，可用 `setup --replace` 备份再替换。备份留在该配置目录的 `.cooking-pi-backups/`。
+以下命令都在仓库目录执行。`npm run plan` 只显示将要操作的文件和内容哈希。`npm run setup` 对手动改过的文件默认报冲突；查看计划后，可用 `npm run setup -- --replace` 备份再替换。备份留在该配置目录的 `.cooking-pi-backups/`。使用其他配方或目录时，每条命令都要带上相同的 `--preset` 和 `--agent-dir` 参数。
 
 ```sh
 node bin/cooking-pi.mjs uninstall --dry-run
